@@ -9,4 +9,8 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
   },
+  body: {
+    width: '100%',
+    maxWidth: 1100,
+  }
 }));

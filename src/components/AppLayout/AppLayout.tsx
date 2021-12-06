@@ -10,7 +10,9 @@ const AppLayout = () => {
   return (
     <Box className={classes.root}>
       <Header />
-      <Homepage />
+      <Box className={classes.body}>
+        <Homepage />
+      </Box>
     </Box>
   );
 };

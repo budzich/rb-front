@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from './styles';
 import { Box, Button } from '@material-ui/core';
-import Logo from 'images/logo.png';
+import Logo from 'assets/images/logo.png';
 
 const Header = () => {
   const classes = useStyles();

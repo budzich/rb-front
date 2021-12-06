@@ -32,6 +32,7 @@ declare module '@material-ui/core/styles/createPalette' {
     label: string;
     link: string;
     placeholder: string;
+    darkPlaceholder: string;
     title: string;
     error: string;
     active: string;
@@ -82,10 +83,11 @@ const theme = (type: ThemeType) => {
     },
     text: {
       main: colors.text,
-      secondary: colors.white,
+      secondary: colors.boldText,
       label: colors.text,
       link: colors.blue,
       placeholder: colors.placeholder,
+      darkPlaceholder: colors.darkPlaceholder,
       title: colors.title,
       error: colors.error,
       active: colors.blue,

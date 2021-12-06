@@ -22,4 +22,8 @@ export const colors: ColorMap = {
   border: '#383838',
   hover: '#292929',
   placeholder: 'rgba(255, 255, 255, 0.7)',
+  darkPlaceholder: 'rgba(255, 255, 255, 0.5)',
+  boldText: 'rgba(255, 255, 255, 0.7)',
+  shadow: '#292929',
+  control: 'rgba(255, 255, 255, 0.1)'
 };

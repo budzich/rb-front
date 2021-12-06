@@ -18,4 +18,5 @@ export const colors: ColorMap = {
   gray: '#BDBDBD',
   grayHover: '#EAF1FB',
   background: '#FFF',
+  shadow: '#EBEBEB',
 };

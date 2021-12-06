@@ -1937,6 +1937,13 @@
   dependencies:
     "@types/jest" "*"
 
+"@types/tiny-slider-react@^0.3.3":
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/@types/tiny-slider-react/-/tiny-slider-react-0.3.3.tgz#37d005f20cc369b2b2144ebdef468bd62d20b7bb"
+  integrity sha512-I1tx3b3kGz+JuefwfNfQu0cDmoYhrlwZxVedRyJ3O+mB7As5cKX7oZ1gA7uruHR6D3RY92amEykkYDbJAIkprg==
+  dependencies:
+    "@types/react" "*"
+
 "@types/uglify-js@*":
   version "3.12.0"
   resolved "https://registry.yarnpkg.com/@types/uglify-js/-/uglify-js-3.12.0.tgz#2bb061c269441620d46b946350c8f16d52ef37c5"
@@ -10833,6 +10840,18 @@ timsort@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
+
+tiny-slider-react@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/tiny-slider-react/-/tiny-slider-react-0.5.3.tgz#0e96f6b9a6cdafaac7b1bc29cfc9cb9a356760f5"
+  integrity sha512-miTPlaWgwfg2U7WBDxdR40LFhAncIS2fF03tuNE5nqVIF5tuvjVFHGz1V0LSJWoNeOtXgoWs94JB2/hdxrCWqA==
+  dependencies:
+    tiny-slider "^2.9.2"
+
+tiny-slider@^2.9.2:
+  version "2.9.4"
+  resolved "https://registry.yarnpkg.com/tiny-slider/-/tiny-slider-2.9.4.tgz#dd5cbf3065f1688ade8383ea6342aefcba22ccc4"
+  integrity sha512-LAs2kldWcY+BqCKw4kxd4CMx2RhWrHyEePEsymlOIISTlOVkjfK40sSD7ay73eKXBLg/UkluAZpcfCstimHXew==
 
 tiny-warning@^1.0.2:
   version "1.0.3"
