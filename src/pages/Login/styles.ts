@@ -1,0 +1,40 @@
+import { makeStyles } from '@material-ui/core';
+
+export const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+    paddingTop: 50,
+  },
+  form: {
+    background: theme.palette.background.secondary,
+    borderRadius: 5,
+    border: `1px solid ${theme.palette.border.primary}`,
+    padding: '30px 20px',
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+    width: '100%',
+    maxWidth: 300,
+  },
+  title: {
+    fontSize: 24,
+    color: theme.palette.text.main,
+    paddingBottom: 30,
+  },
+  textfield: {
+    width: '100%',
+    marginBottom: 10,
+  },
+  input: {
+    color: theme.palette.text.placeholder,
+    padding: '10px',
+    fontSize: 14,
+  },
+  button: {
+    width: '100%',
+    marginTop: 10,
+  },
+}));
