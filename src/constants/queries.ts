@@ -1,1 +1,1 @@
-export const LOGIN_QUERY = 'login123123';
+export const LOGIN_QUERY = 'login';

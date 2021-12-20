@@ -1,14 +1,18 @@
-import React from 'react';
-import { ThemeProvider } from '@material-ui/core';
-import theme from 'theme';
-import { DARK_THEME } from 'theme/types';
+import React, { useReducer } from 'react';
 import AppLayout from 'components/AppLayout';
+import { AuthContext } from 'utils/auth/auth.context';
+import { TokenStorage } from 'utils/tokenStorage';
+import { authReducer } from 'utils/auth/auth.reducer';
 
 const App = () => {
+  const [state, dispatch] = useReducer(authReducer, {
+    isLoggedIn: TokenStorage.isAuthenticated(),
+  });
+
   return (
-    <ThemeProvider theme={theme(DARK_THEME)}>
+    <AuthContext.Provider value={{ state, dispatch }}>
       <AppLayout />
-    </ThemeProvider>
+    </AuthContext.Provider>
   );
 };
 
