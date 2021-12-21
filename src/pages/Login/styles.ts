@@ -24,9 +24,19 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.main,
     paddingBottom: 30,
   },
-  textfield: {
+  formError: {
+    paddingTop: 4,
+    fontSize: '12px',
+    color: theme.palette.text.error,
+  },
+  inputWrapper: {
     width: '100%',
     marginBottom: 10,
+    position: 'relative',
+    '&.error input, &.error fieldset, &.error .MuiOutlinedInput-root.Mui-focused fieldset, &.error .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline':
+      {
+        borderColor: theme.palette.text.error,
+      },
   },
   input: {
     color: theme.palette.text.placeholder,
@@ -36,5 +46,10 @@ export const useStyles = makeStyles((theme) => ({
   button: {
     width: '100%',
     marginTop: 10,
+    background: theme.palette.colors.blue,
+
+    '&:hover': {
+      background: theme.palette.colors.darkBlue,
+    }
   },
 }));

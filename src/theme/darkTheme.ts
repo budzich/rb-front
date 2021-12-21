@@ -3,7 +3,6 @@ import { ColorMap } from './types';
 export const colors: ColorMap = {
   black: '#000',
   white: '#FFF',
-  blue: '#2F80ED',
   blueDisabled: '',
   yellow: '#FFBD00',
   green: '#219653',
@@ -12,7 +11,6 @@ export const colors: ColorMap = {
   high: '#135D2D',
   lightBlue: '#C1D9FA',
   title: '#050F19',
-  error: '#EB5757',
   gray: '#BDBDBD',
   grayHover: '#EAF1FB',
 
@@ -25,5 +23,8 @@ export const colors: ColorMap = {
   darkPlaceholder: 'rgba(255, 255, 255, 0.5)',
   boldText: 'rgba(255, 255, 255, 0.7)',
   shadow: '#292929',
-  control: 'rgba(255, 255, 255, 0.1)'
+  control: 'rgba(255, 255, 255, 0.1)',
+  blue: '#0099FF',
+  darkBlue: '#0078e5',
+  error: '#EB5757',
 };

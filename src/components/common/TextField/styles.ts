@@ -6,7 +6,6 @@ export const useStyles = makeStyles((theme) => ({
   },
   inputWrapper: {
     width: '100%',
-    paddingBottom: '8px',
 
     '& .MuiOutlinedInput-adornedEnd': {
       paddingRight: 10,
