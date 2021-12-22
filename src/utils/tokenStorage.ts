@@ -19,10 +19,7 @@ export class TokenStorage {
   }
 
   public static getStorage(): Storage {
-    if (TokenStorage.checkIfRemembered()) {
-      return localStorage;
-    }
-    return sessionStorage;
+    return localStorage;
   }
 
   public static getAuthentication(): AxiosRequestConfig {

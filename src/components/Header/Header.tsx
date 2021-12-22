@@ -18,7 +18,7 @@ const Header = () => {
   };
 
   const handleLogOut = () => {
-    TokenStorage.forget();
+    TokenStorage.clear();
     authContext.dispatch({
       type: AuthActionTypes.login,
       payload: {

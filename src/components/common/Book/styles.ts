@@ -13,6 +13,9 @@ export const useStyles = makeStyles((theme) => ({
     border: `1px solid ${theme.palette.colors.shadow}`,
     borderRadius: 5,
     cursor: 'pointer',
+    aspectRatio: '2 / 3',
+    objectFit: 'contain',
+    background: theme.palette.background.secondary,
   },
   title: {
     fontSize: 14,

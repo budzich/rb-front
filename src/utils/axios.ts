@@ -2,7 +2,7 @@ import axios, { AxiosResponse, AxiosError } from 'axios';
 import { camelizeKeys } from 'humps';
 import { TokenStorage } from './tokenStorage';
 
-export const baseURL = process.env.REACT_APP_BACKEND_HOST || 'undefined-backend-url';
+export const baseURL = `${process.env.REACT_APP_BACKEND_HOST || 'undefined-backend-url'}api/`;
 
 const axiosConfig = {
   baseURL,
