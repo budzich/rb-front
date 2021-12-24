@@ -22,3 +22,13 @@ export const getBooks = async ({ page, sort }: IGetBooks) => {
     return e.response;
   }
 };
+
+export const getBook = async (id: number) => {
+  const url = `${BOOKS_URL}/${id}`;
+
+  try {
+    return await axiosInstance.get(url, TokenStorage.getAuthentication());
+  } catch (e: any) {
+    return e.response;
+  }
+};

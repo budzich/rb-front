@@ -8,12 +8,19 @@ export interface IGenre {
   title: string;
 }
 
+export interface IAuthor {
+  email: string;
+  id: number;
+}
+
 export interface IBook {
   id: number;
   title: string;
   description: string;
   image: string;
   genres: IGenre[];
+  createdAt: Date;
+  user?: IAuthor;
 }
 
 export interface IPopularBook {

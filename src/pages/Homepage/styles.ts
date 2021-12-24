@@ -17,6 +17,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   newWrapper: {
     width: '100%',
+    minHeight: 300,
   },
   new: {
     display: 'flex',

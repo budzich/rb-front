@@ -44,14 +44,6 @@ export const useStyles = makeStyles((theme) => ({
     padding: '10px',
     fontSize: 14,
   },
-  register: {
-    paddingBottom: 12,
-  },
-  link: {
-    color: theme.palette.colors.blue,
-    textDecoration: 'none',
-    paddingLeft: 4,
-  },
   button: {
     width: '100%',
     marginTop: 10,

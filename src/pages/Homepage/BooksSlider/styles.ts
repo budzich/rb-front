@@ -5,6 +5,7 @@ export const useStyles = makeStyles((theme) => ({
     paddingTop: 50,
     position: 'relative',
     width: '100%',
+    minHeight: 300,
 
     '& .tns-controls button': {
       background: 'none',
