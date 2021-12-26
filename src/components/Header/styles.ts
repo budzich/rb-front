@@ -14,6 +14,21 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
   },
+  user: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  plus: {
+    fontSize: 26,
+    boxSizing: 'border-box',
+    cursor: 'pointer',
+    borderRadius: 100,
+    minWidth: 40,
+    minHeight: 40,
+    width: 40,
+    height: 40,
+    marginRight: 10,
+  },
   menuButton: {
     fontSize: 20,
 

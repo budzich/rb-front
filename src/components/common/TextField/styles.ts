@@ -35,7 +35,6 @@ export const useStyles = makeStyles((theme) => ({
     paddingBottom: '6px',
     color: theme.palette.text.placeholder,
     fontSize: '14px',
-    lineHeight: '19px',
     textAlign: 'left',
   },
   input: {

@@ -3,7 +3,7 @@ import { useStyles } from './styles';
 import { Box, Button } from '@material-ui/core';
 import Logo from 'assets/images/logo.png';
 import { useNavigate } from 'react-router-dom';
-import { LOGIN_ROUTE } from 'constants/routes';
+import { BOOK_CREATION_ROUTE, LOGIN_ROUTE } from 'constants/routes';
 import { AuthContext } from 'utils/auth/auth.context';
 import { TokenStorage } from 'utils/tokenStorage';
 import { AuthActionTypes } from 'utils/auth/auth.types';
@@ -32,6 +32,9 @@ const Header = () => {
     navigate('/');
   };
 
+  const handleCreateBook = () => {
+    navigate(BOOK_CREATION_ROUTE);
+  };
 
   return (
     <Box className={classes.wrapper}>
@@ -42,8 +45,12 @@ const Header = () => {
         </Box>
         <Box className={classes.rightMenu}>
           {authContext.state.isLoggedIn
-            ? <Button className={classes.menuButton} onClick={handleLogOut}>ВЫЙТИ</Button>
-            : <Button className={classes.menuButton} onClick={handleLogIn}>ВОЙТИ</Button>
+            ? (
+              <Box className={classes.user}>
+                <Button className={classes.plus} onClick={handleCreateBook}>+</Button>
+                <Button className={classes.menuButton} onClick={handleLogOut}>ВЫЙТИ</Button>
+              </Box>
+            ) : <Button className={classes.menuButton} onClick={handleLogIn}>ВОЙТИ</Button>
           }
         </Box>
       </Box>
