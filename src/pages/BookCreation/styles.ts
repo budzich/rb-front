@@ -14,28 +14,9 @@ export const useStyles = makeStyles((theme) => ({
     width: '100%',
     paddingBottom: 30,
   },
-  imageWrapper: {},
-  sectionTitle: {
-    paddingBottom: '6px',
-    color: theme.palette.text.placeholder,
-    fontSize: '14px',
-  },
-  image: {
-    aspectRatio: '2 / 3',
-    objectFit: 'contain',
-    width: 200,
-    borderRadius: '5px',
-    background: theme.palette.background.secondary,
-  },
   mainInfo: {
     paddingLeft: 30,
     width: '100%',
-  },
-  genres: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    marginRight: -10,
-    marginBottom: -10,
   },
   textfield: {
     paddingBottom: 20,

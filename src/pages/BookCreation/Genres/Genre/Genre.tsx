@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStyles } from './styles';
+import { useStyles } from 'pages/BookCreation/Genres/Genre/styles';
 import { Typography } from '@material-ui/core';
 import { IGenre } from 'ducks/genres/types/genres';
 

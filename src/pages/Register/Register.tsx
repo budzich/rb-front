@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useStyles } from './styles';
 import { Box, Button, Typography } from '@material-ui/core';
-import TextField from 'components/common/TextField';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from 'utils/auth/auth.context';
 import { useFormik } from 'formik';
@@ -9,6 +8,7 @@ import { TokenStorage } from 'utils/tokenStorage';
 import { AuthActionTypes } from 'utils/auth/auth.types';
 import * as Yup from 'yup';
 import { useRegister } from 'ducks/auth/hooks/useRegister';
+import FormikField from 'components/common/FormikField';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -84,74 +84,19 @@ const Register = () => {
     <Box className={classes.root}>
       <Typography className={classes.title}>Создание аккаунта</Typography>
       <form className={classes.form} onSubmit={formik.handleSubmit}>
-        <Box
-          className={
-            formik.errors.email && formik.touched.email
-              ? `error ${classes.inputWrapper}`
-              : classes.inputWrapper
-          }
-          flexDirection="column"
-        >
-          <TextField
-            label="Почта"
-            name="email"
-            inputProps={{ className: classes.input }}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.email}
-          />
-          {formik.errors.email && formik.touched.email && (
-            <Typography component="span" className={classes.formError}>
-              {formik.errors.email}
-            </Typography>
-          )}
-        </Box>
-        <Box
-          className={
-            formik.errors.password && formik.touched.password
-              ? `error ${classes.inputWrapper}`
-              : classes.inputWrapper
-          }
-          flexDirection="column"
-        >
-          <TextField
-            label="Пароль"
-            name="password"
-            type="password"
-            inputProps={{ className: classes.input }}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.password}
-          />
-          {formik.errors.password && formik.touched.password && (
-            <Typography component="span" className={classes.formError}>
-              {formik.errors.password}
-            </Typography>
-          )}
-        </Box>
-        <Box
-          className={
-            formik.errors.password_confirmation && formik.touched.password_confirmation
-              ? `error ${classes.inputWrapper}`
-              : classes.inputWrapper
-          }
-          flexDirection="column"
-        >
-          <TextField
-            label="Подтверждение пароля"
-            name="password_confirmation"
-            type="password"
-            inputProps={{ className: classes.input }}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.password_confirmation}
-          />
-          {formik.errors.password_confirmation && formik.touched.password_confirmation && (
-            <Typography component="span" className={classes.formError}>
-              {formik.errors.password_confirmation}
-            </Typography>
-          )}
-        </Box>
+        <FormikField formik={formik} label="Почта" name="email" />
+        <FormikField
+          formik={formik}
+          label="Пароль"
+          name="password"
+          inputProps={{ type: 'password' }}
+        />
+        <FormikField
+          formik={formik}
+          label="Подтверждение пароля"
+          name="password_confirmation"
+          inputProps={{ type: 'password' }}
+        />
         <Button className={classes.button} type="submit">Создать аккаунт</Button>
         {errorMessage && (
           <Typography component="span" className={classes.errorMessage}>

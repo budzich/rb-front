@@ -13,5 +13,6 @@ export const useStyles = makeStyles((theme) => ({
   },
   active: {
     color: theme.palette.colors.blue,
+    borderColor: theme.palette.colors.blue,
   },
 }));

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Box, Button, Typography } from '@material-ui/core';
-import TextField from 'components/common/TextField';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useStyles } from './styles';
@@ -10,6 +9,7 @@ import { AuthActionTypes } from 'utils/auth/auth.types';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from 'utils/auth/auth.context';
 import { REGISTER_ROUTE } from 'constants/routes';
+import FormikField from 'components/common/FormikField';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -77,51 +77,13 @@ const Login = () => {
     <Box className={classes.root}>
       <Typography className={classes.title}>Вход в аккаунт</Typography>
       <form className={classes.form} onSubmit={formik.handleSubmit}>
-        <Box
-          className={
-            formik.errors.email && formik.touched.email
-              ? `error ${classes.inputWrapper}`
-              : classes.inputWrapper
-          }
-          flexDirection="column"
-        >
-          <TextField
-            label="Почта"
-            name="email"
-            inputProps={{ className: classes.input }}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.email}
-          />
-          {formik.errors.email && formik.touched.email && (
-            <Box component="span" className={classes.formError}>
-              {formik.errors.email}
-            </Box>
-          )}
-        </Box>
-        <Box
-          className={
-            formik.errors.password && formik.touched.password
-              ? `error ${classes.inputWrapper}`
-              : classes.inputWrapper
-          }
-          flexDirection="column"
-        >
-          <TextField
-            label="Пароль"
-            name="password"
-            type="password"
-            inputProps={{ className: classes.input }}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.password}
-          />
-          {formik.errors.password && formik.touched.password && (
-            <Box component="span" className={classes.formError}>
-              {formik.errors.password}
-            </Box>
-          )}
-        </Box>
+        <FormikField formik={formik} label="Почта" name="email" />
+        <FormikField
+          formik={formik}
+          label="Пароль"
+          name="password"
+          inputProps={{ type: 'password' }}
+        />
         <Typography className={classes.register}>
           Нет аккаунта?
           <Link to={REGISTER_ROUTE} className={classes.link}>Создать</Link>
