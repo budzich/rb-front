@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Typography } from '@material-ui/core';
+import { Box, Button, CircularProgress, Typography } from '@material-ui/core';
 import Genres from 'pages/BookCreation/Genres';
 import DropZone from 'pages/BookCreation/DropZone';
 import * as Yup from 'yup';
@@ -7,6 +7,9 @@ import { useFormik } from 'formik';
 import FormikField from 'components/common/FormikField';
 import { FILE_SIZE, SUPPORTED_FORMATS } from 'pages/BookCreation/constants';
 import { useStyles } from './styles';
+import { useCreateBook } from 'ducks/books/hooks/useCreateBook';
+import { useNavigate } from 'react-router-dom';
+import { BOOK_ROUTE } from 'constants/routes';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string()
@@ -24,6 +27,8 @@ const validationSchema = Yup.object().shape({
 
 const BookCreation = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
+  const { mutateAsync, isLoading } = useCreateBook();
   const formik = useFormik({
     initialValues: {
       title: '',
@@ -36,11 +41,18 @@ const BookCreation = () => {
     validationSchema,
     onSubmit: async () => {
       await formik.validateForm(formik.values);
-      console.log('aboba');
+      const formData = new FormData();
+      formData.append('title', formik.values.title);
+      formData.append('description', formik.values.description);
+      formData.append('genres', JSON.stringify(formik.values.genres));
+      formData.append('image', formik.values.poster as unknown as Blob);
+      const res = await mutateAsync(formData);
+
+      if (res?.status === 201) {
+        navigate(`${BOOK_ROUTE}/${res.data.id}`);
+      }
     }
   });
-
-  console.log(formik.values);
 
   return (
     <Box className={classes.root}>
@@ -63,7 +75,9 @@ const BookCreation = () => {
             multiline: true,
           }}
         />
-        <Button className={classes.button} type="submit">Опубликовать</Button>
+        <Button className={classes.button} type="submit">
+          {isLoading ? <CircularProgress size={14} /> : 'Опубликовать'}
+        </Button>
       </form>
     </Box>
   );

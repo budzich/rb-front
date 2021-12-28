@@ -26,7 +26,8 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.placeholder,
     width: '100%',
     padding: 20,
-    textAlign: 'center'
+    textAlign: 'center',
+    fontSize: 14,
   },
   formError: {
     paddingTop: 4,

@@ -32,3 +32,11 @@ export const getBook = async (id: number) => {
     return e.response;
   }
 };
+
+export const createBook = async (data: FormData) => {
+  try {
+    return await axiosInstance.post(BOOKS_URL, data, TokenStorage.getAuthentication());
+  } catch (e: any) {
+    return e.response;
+  }
+};
