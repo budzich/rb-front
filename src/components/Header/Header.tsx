@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { useStyles } from './styles';
 import { Box, Button } from '@material-ui/core';
 import Logo from 'assets/images/logo.png';
 import { useNavigate } from 'react-router-dom';
@@ -7,6 +6,7 @@ import { BOOK_CREATION_ROUTE, LOGIN_ROUTE } from 'constants/routes';
 import { AuthContext } from 'utils/auth/auth.context';
 import { TokenStorage } from 'utils/tokenStorage';
 import { AuthActionTypes } from 'utils/auth/auth.types';
+import { useStyles } from './styles';
 
 const Header = () => {
   const classes = useStyles();
@@ -41,7 +41,6 @@ const Header = () => {
       <Box className={classes.root}>
         <Box className={classes.leftMenu}>
           <img alt="err" src={Logo} className={classes.logo} onClick={handleHomepage} />
-          <Button className={classes.menuButton}>ВЫБРАТЬ КНИГУ</Button>
         </Box>
         <Box className={classes.rightMenu}>
           {authContext.state.isLoggedIn
