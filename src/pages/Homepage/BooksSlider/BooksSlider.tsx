@@ -2,8 +2,8 @@ import React from 'react';
 import TinySlider from 'tiny-slider-react';
 import { Box, Typography } from '@material-ui/core';
 import Book from 'components/common/Book';
-import { useStyles } from './styles';
 import { IPopularBook } from 'ducks/books/types/books';
+import { useStyles } from './styles';
 
 const settings = {
   lazyload: true,

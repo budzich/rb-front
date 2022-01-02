@@ -30,7 +30,7 @@ const Homepage = () => {
       <Box className={classes.divider} />
       <Box className={classes.newWrapper}>
         <Typography className={classes.title}>Новинки</Typography>
-        {latestBooks?.length ? (
+        {latestBooks?.data?.length ? (
           <Box className={classes.new}>
             {(latestBooks?.data || []).slice(0, 5).map((book: IBook) =>
               <Book key={book.id} book={book} className={classes.book} />)}
