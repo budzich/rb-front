@@ -2,16 +2,34 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { store } from 'store';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
+import * as serviceWorker from './serviceWorker';
+import theme from 'theme';
+import { DARK_THEME } from 'theme/types';
+import { ThemeProvider } from '@material-ui/core';
+import { Provider } from 'react-redux';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false,
+    },
+  },
+});
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <QueryClientProvider client={queryClient}>
+    <ThemeProvider theme={theme(DARK_THEME)}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </ThemeProvider>
+    <ReactQueryDevtools initialIsOpen={false} />
+  </QueryClientProvider>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+serviceWorker.unregister();
