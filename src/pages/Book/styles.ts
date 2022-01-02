@@ -5,6 +5,12 @@ export const useStyles = makeStyles((theme) => ({
     paddingTop: 50,
     display: 'flex',
   },
+  loader: {
+    height: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   poster: {
     aspectRatio: '2 / 3',
     objectFit: 'contain',

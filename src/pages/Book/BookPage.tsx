@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useStyles } from './styles';
-import { Box, Typography } from '@material-ui/core';
+import { Box, CircularProgress, Typography } from '@material-ui/core';
 import { useParams } from 'react-router-dom';
 import { useGetBook } from 'ducks/books/hooks/useGetBook';
 import { IBook } from 'ducks/books/types/books';
 import { format } from 'date-fns';
+import NotFound from 'pages/NotFound';
 
 type ParamsType = {
   id: string;
@@ -14,17 +15,31 @@ const BookPage = () => {
   const classes = useStyles();
   const { id } = useParams<ParamsType>();
   const searchId = id ? +id : 0;
-  const { data } = useGetBook(searchId);
+  const { data, isLoading, refetch } = useGetBook(searchId);
   const book: IBook = data?.data;
-  // console.log(data?.data);
 
-  // todo Implement loaders & errors
+  useEffect(() => {
+    if (searchId && Number.isInteger(searchId)) {
+      refetch();
+    }
+    // eslint-disable-next-line
+  }, []);
+
+
+  if (isLoading) {
+    return (
+      <Box className={classes.loader}>
+        <CircularProgress size={50} />
+      </Box>
+    );
+  }
+
   if (!book) {
-    return <Typography>loading/error</Typography>;
+    return <NotFound />;
   }
 
   const date = format(new Date(book.createdAt), 'Pp');
-  const genres = book.genres
+  const genres = book.genres!
     .slice(0, 5)
     .map(el => el.title)
     .join(', ');

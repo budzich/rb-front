@@ -6,15 +6,16 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import FormikField from 'components/common/FormikField';
 import { FILE_SIZE, SUPPORTED_FORMATS } from 'pages/BookCreation/constants';
-import { useStyles } from './styles';
 import { useCreateBook } from 'ducks/books/hooks/useCreateBook';
 import { useNavigate } from 'react-router-dom';
 import { BOOK_ROUTE } from 'constants/routes';
+import { useStyles } from './styles';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string()
     .required('Введите название книги')
-    .max(60, 'Название не должно превышать 60 символов'),
+    .max(60, 'Название не должно превышать 60 символов')
+    .min(3, 'Название должно содержать не менее 3 символов'),
   description: Yup.string()
     .required('Введите описание книги'),
   genres: Yup.array()

@@ -25,9 +25,13 @@ const BooksSlider = ({ title, data }: IProps) => {
   return (
     <Box className={classes.root}>
       <Typography className={classes.title}>{title}</Typography>
-      <TinySlider settings={settings}>
-        {data.map(({ book }) => <Book key={book.id} book={book} />)}
-      </TinySlider>
+      {data?.length ? (
+        <TinySlider settings={settings}>
+          {data.map(({ book }) => <Book key={book.id} book={book} />)}
+        </TinySlider>
+      ) : (
+        <Typography className={classes.empty}>Ничего не найдено</Typography>
+      )}
     </Box>
   );
 };

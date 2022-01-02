@@ -28,7 +28,7 @@ const Book = ({ className, book }: IProps) => {
         onClick={handleOpen}
       />
       <Typography className={classes.title} onClick={handleOpen}>{book.title}</Typography>
-      <Typography className={classes.genre}>{book.genres[0].title}</Typography>
+      <Typography className={classes.genre}>{book.genres![0].title}</Typography>
     </Box>
   );
 };

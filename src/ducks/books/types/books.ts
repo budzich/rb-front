@@ -15,8 +15,8 @@ export interface IBook {
   title: string;
   description: string;
   image: string;
-  genres: IGenre[];
-  createdAt: Date;
+  createdAt: Date | string;
+  genres?: IGenre[];
   user?: IAuthor;
 }
 
@@ -28,4 +28,8 @@ export interface IPopularBook {
 export interface IGetBooks {
   page?: number;
   sort?: SortType;
+}
+
+export interface ISearchBooks {
+  search: string;
 }

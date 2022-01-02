@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box, CircularProgress, Typography } from '@material-ui/core';
 import Search from 'pages/Homepage/Search';
 import BooksSlider from 'pages/Homepage/BooksSlider';
 import { useStyles } from './styles';
@@ -10,11 +10,19 @@ import Book from 'components/common/Book';
 
 const Homepage = () => {
   const classes = useStyles();
-  const { data: todayBooks } = usePopularBooks(1);
-  const { data: twoWeeksBooks } = usePopularBooks(30);
-  const { data: latestBooks } = useGetBooks({ sort: LATEST_BOOKS_TYPE });
+  const { data: todayBooks, isLoading: isLoadingToday } = usePopularBooks(1);
+  const { data: twoWeeksBooks, isLoading: isLoadingWeeks } = usePopularBooks(30);
+  const { data: latestBooks, isLoading: isLoadingLatest } = useGetBooks({ sort: LATEST_BOOKS_TYPE });
+  const isLoading = isLoadingLatest || isLoadingWeeks || isLoadingToday;
 
-  // todo Implement loaders & errors
+  if (isLoading) {
+    return (
+      <Box className={classes.loader}>
+        <CircularProgress size={50} />
+      </Box>
+    );
+  }
+
   return (
     <Box className={classes.root}>
       <Search />
@@ -22,10 +30,14 @@ const Homepage = () => {
       <Box className={classes.divider} />
       <Box className={classes.newWrapper}>
         <Typography className={classes.title}>Новинки</Typography>
-        <Box className={classes.new}>
-          {(latestBooks?.data || []).slice(0, 5).map((book: IBook) =>
-            <Book key={book.id} book={book} className={classes.book} />)}
-        </Box>
+        {latestBooks?.length ? (
+          <Box className={classes.new}>
+            {(latestBooks?.data || []).slice(0, 5).map((book: IBook) =>
+              <Book key={book.id} book={book} className={classes.book} />)}
+          </Box>
+        ) : (
+          <Typography className={classes.empty}>Ничего не найдено</Typography>
+        )}
       </Box>
       <Box className={classes.divider} />
       <BooksSlider title="Бестселлеры" data={twoWeeksBooks?.data || []} />

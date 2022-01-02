@@ -54,4 +54,8 @@ export const useStyles = makeStyles((theme) => ({
     paddingBottom: 20,
     color: theme.palette.text.main
   },
+  empty: {
+    fontSize: 24,
+    color: theme.palette.text.secondary
+  },
 }));

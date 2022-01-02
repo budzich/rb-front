@@ -9,6 +9,12 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     padding: '50px 0 100px',
   },
+  loader: {
+    height: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   divider: {
     width: 600,
     margin: '50px auto',
@@ -31,5 +37,9 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: 32,
     paddingBottom: 20,
     color: theme.palette.text.main
+  },
+  empty: {
+    fontSize: 24,
+    color: theme.palette.text.secondary
   },
 }));
