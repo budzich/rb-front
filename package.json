@@ -25,6 +25,7 @@
     "react-dom": "^17.0.2",
     "react-dropzone": "^11.4.2",
     "react-query": "^3.31.0",
+    "@reduxjs/toolkit": "^1.7.1",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
     "react-scripts": "4.0.3",
@@ -60,7 +61,6 @@
     ]
   },
   "devDependencies": {
-    "@reduxjs/toolkit": "^1.7.1",
     "@types/humps": "^2.0.1",
     "@types/lodash.debounce": "^4.0.6",
     "@types/tiny-slider-react": "^0.3.3"
